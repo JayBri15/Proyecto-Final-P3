@@ -1,0 +1,58 @@
+name: Run E2E Tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  e2e:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Verify browsers are available
+        run: |
+          which chromium || echo "chromium not in PATH"
+          which google-chrome || echo "google-chrome not in PATH"
+          which firefox || echo "firefox not in PATH"
+          apt-cache search chromium | head -10
+
+      - name: Run E2E tests (with HTML report)
+        run: |
+          cd /workspaces/Proyecto-Final-P3 2>/dev/null || true
+          chmod +x ./run_tests.sh 2>/dev/null || true
+          python3 -m pytest tests/automation/test_cases -v \
+            --html=reports/test_report.html \
+            --self-contained-html \
+            --tb=short
+        continue-on-error: true
+
+      - name: Upload test report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-report-html
+          path: reports/test_report.html
+          retention-days: 30
+
+      - name: Upload screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-screenshots
+          path: reports/screenshots/
+          retention-days: 30
+

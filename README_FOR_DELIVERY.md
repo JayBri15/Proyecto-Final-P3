@@ -203,6 +203,19 @@ pip install -r requirements.txt  # Instala dependencias (pytest, etc.)
 pytest tests/ -v  # Ejecuta todos los tests
 ```
 
+**Notas importantes sobre ejecución E2E:**
+- Estas pruebas usan Selenium + Chrome. Si ejecutas las pruebas en un contenedor local que no tenga Chrome/Chromium instalado, las pruebas se omitirán automáticamente (ver `tests/automation/conftest.py`).
+- Para ejecutar E2E reales localmente en Linux debes instalar Chrome/Chromium y el driver correspondiente (requiere permisos de administrador):
+
+```bash
+sudo apt-get update
+sudo apt-get install -y chromium chromium-chromedriver
+pip install -r requirements.txt
+pytest tests/automation/test_cases -v
+```
+
+- Si no puedes instalar Chrome localmente, utiliza la acción de GitHub Actions incluida en `.github/workflows/run-e2e.yml`. Basta con push a `main` o abrir un pull request; la CI ejecutará las pruebas en `ubuntu-latest` (Chrome disponible).
+
 **En el documento final, incluye:**
 ```
 Código de pruebas: https://github.com/JayBri15/Proyecto-Final-P3/tree/main/tests/test_cases
