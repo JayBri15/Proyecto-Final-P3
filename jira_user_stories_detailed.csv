@@ -1,0 +1,129 @@
+ID,Resumen,Descripción,Criterios de Aceptación,Criterios de Rechazo,Puntos de Historia,Epic,Tipo,Prioridad,Asignado
+HU-01,Ver lista de productos,"Como usuario, deseo poder visualizar la lista de productos para elegir uno que deseo comprar.","- Página Lista.html muestra nombre y precio de cada producto
+- Lista no está vacía cuando existen productos en localStorage
+- Se muestran al menos 3 campos: nombre, descripción y precio
+- Los productos están disponibles sin necesidad de autenticación
+- Interfaz es clara y legible","- Lista vacía cuando hay productos disponibles
+- Información incompleta o faltante de productos
+- Página no carga en menos de 3 segundos
+- Errores de JavaScript en consola del navegador",2,Gestión de Productos,Historia,Media,
+HU-02,Crear producto,"Como usuario, deseo poder crear un producto nuevo para agregarlo al sistema de inventario.","- Formulario en Crear.html con campos: nombre, descripción y precio
+- Validación en cliente de campos requeridos
+- Producto creado se guarda en localStorage
+- Producto aparece inmediatamente en Lista.html después de crear
+- Se muestra mensaje de confirmación al crear exitosamente
+- Precio acepta decimales (ej: 9.99)","- Permitir crear sin nombre o precio
+- No guardar producto en localStorage
+- Producto no aparece en lista después de crear
+- Aceptar precio negativo o nulo
+- No mostrar validación de campos requeridos",3,Gestión de Productos,Historia,Media,
+HU-03,Editar producto,"Como usuario, deseo poder editar un producto existente para corregir o actualizar su información.","- Página Editar.html carga datos del producto seleccionado
+- Campos editables: nombre, descripción y precio
+- Cambios se guardan en localStorage
+- Cambios se reflejan inmediatamente en Lista.html
+- Se muestra mensaje de confirmación al editar
+- Se validan campos requeridos antes de guardar
+- Opción para cancelar sin guardar cambios","- Editar un producto que no existe
+- No guardar cambios en localStorage
+- Cambios no se reflejan en lista después de editar
+- Permitir campos vacíos en requeridos
+- Aceptar precio negativo o inválido
+- No mostrar opción de cancelar",3,Gestión de Productos,Historia,Media,
+HU-04,Eliminar producto,"Como usuario, deseo poder eliminar un producto para mantener el inventario actualizado.","- Botón eliminar disponible en cada producto en Lista.html
+- Confirmación antes de eliminar (modal o alert)
+- Producto se elimina de localStorage al confirmar
+- Producto desaparece de la lista inmediatamente
+- Se muestra mensaje de confirmación de eliminación
+- Opción para cancelar la eliminación
+- Se mantiene lista de otros productos intacta","- Eliminar sin confirmación
+- No eliminar de localStorage
+- Producto aún visible después de eliminar
+- Afectar otros productos al eliminar uno
+- No permitir cancelar la operación
+- Eliminar producto que no existe",2,Gestión de Productos,Historia,Media,
+HU-05,Añadir al carrito,"Como usuario, deseo poder añadir productos al carrito para comprarlos después.","- Botón 'Añadir al carrito' disponible en Lista.html para cada producto
+- Producto se añade a Carrito.html con cantidad inicial de 1
+- Carrito se guarda en sessionStorage
+- Se muestra mensaje de confirmación al añadir
+- Permite añadir el mismo producto múltiples veces
+- La cantidad se incrementa si el producto ya está en carrito
+- Icono o badge muestra cantidad de items en carrito","- Añadir sin botón visible
+- No guardar en sessionStorage
+- Producto no aparece en Carrito.html
+- No mostrar confirmación visual
+- No permitir múltiples unidades del mismo producto
+- Carrito se borra al refrescar página",2,Carrito de Compras,Historia,Media,
+HU-06,Ver carrito y totales,"Como usuario, deseo ver el contenido del carrito con detalles y totales para verificar mi compra.","- Página Carrito.html muestra lista de productos añadidos
+- Cada producto muestra: nombre, cantidad, precio unitario y subtotal
+- Se calcula correctamente el total general del carrito
+- Opción para aumentar/disminuir cantidad de cada producto
+- Opción para eliminar producto del carrito
+- Se muestra carrito vacío cuando no hay productos
+- Totales se actualizan en tiempo real al cambiar cantidades
+- Validación de cantidad mínima (1) y máxima (999)","- Totales incorrectos o mal calculados
+- No mostrar detalles de productos
+- No permitir cambiar cantidades
+- No mostrar opción de eliminar del carrito
+- Totales no se actualizan al cambiar cantidad
+- Permitir cantidad 0 o negativa
+- Carrito no actualiza al cambiar en Lista.html",2,Carrito de Compras,Historia,Media,
+HU-07,Login básico,"Como usuario, deseo poder iniciar sesión para acceder a mis funcionalidades.","- Login exitoso con credenciales válidas (admin/123)
+- Redirección correcta a página de productos después de login
+- Sesión guardada en sessionStorage
+- Mensaje de error claro con credenciales inválidas
+- Validación de campos no vacíos
+- Indicador visual de usuario autenticado
+- Opción de cerrar sesión
+- Página login no accesible si ya está autenticado","- Permitir login sin usuario o contraseña
+- No redirigir con credenciales correctas
+- No guardar sesión de usuario válido
+- Guardar sesión de usuario inválido
+- No mostrar mensaje de error
+- Permitir acceso sin validar credenciales
+- Permitir login si ya hay sesión activa
+- No permitir cerrar sesión",2,Calidad y Pruebas,Historia,Media,
+HU-08,Pruebas automatizadas,"Como desarrollador, deseo tener pruebas automatizadas que validen los flujos críticos para asegurar calidad.","- Suite pytest con tests para crear, editar, eliminar, añadir al carrito y login
+- Todos los tests pasan en entorno local
+- Cobertura de Happy Path para cada funcionalidad
+- Cobertura de casos negativos (validaciones, errores)
+- Cobertura de casos límite (valores especiales)
+- Tests ejecutables vía CLI: pytest tests/ -v
+- Reporte HTML generado al ejecutar tests
+- Page Object Model implementado para mantenibilidad","- Tests que fallan sin justificación
+- Cobertura < 70% de flujos críticos
+- No ejecutables desde CLI
+- No generar reportes
+- Código duplicado en tests
+- Tests sin fixtures o configuración
+- No documentar pasos de los tests
+- Fallos aleatorios (tests flaky)",3,Calidad y Pruebas,Historia,Alta,
+HU-09,Reportes y capturas en fallos,"Como QA, deseo recibir reportes y capturas de pantalla cuando los tests fallan para diagnosticar problemas.","- Screenshots se guardan en tests/reports/screenshots cuando falla un test
+- Nombre del screenshot incluye nombre del test y timestamp
+- Reporte HTML incluye path a screenshot en caso de fallo
+- Logs del navegador se capturan en archivos de texto
+- Reporte muestra duración de cada test
+- Reporte distingue entre Pass/Fail/Skip
+- Screenshots legibles y en resolución adecuada (1024x768 mínimo)
+- Reportes accesibles al terminar la ejecución","- Screenshots no se guardan
+- No incluir path en reporte
+- Logs vacíos o incompletos
+- Reporte no legible o incompleto
+- Screenshots borrosos o de baja resolución
+- No incluir timestamps
+- Reportes no accesibles
+- Reportes sin estructura clara",1,Calidad y Pruebas,Historia,Media,
+HU-10,Responsive básico,"Como usuario, deseo que las páginas se adapten a diferentes tamaños de pantalla para usar desde móviles.","- Layout se adapta a viewport 375px (móvil pequeño) sin overflow horizontal
+- Elementos críticos son accesibles y clickeables en móvil
+- Fuentes legibles en resolución móvil (mínimo 12px)
+- Imágenes se escalan proporcionalmente
+- Formularios se ajustan al ancho disponible
+- Botones tienen tamaño mínimo de 44x44px para toque
+- Navegación es clara en mobile (menú hamburguesa si es necesario)
+- Media queries CSS para breakpoint 375px implementadas","- Overflow horizontal en móvil
+- Elementos no accesibles en móvil
+- Texto ilegible por tamaño muy pequeño
+- Imágenes distorsionadas o incompletas
+- Formularios truncados
+- Botones muy pequeños para tocar
+- Navegación confusa en móvil
+- No responsive (sin media queries)",2,Calidad y Pruebas,Historia,Baja,

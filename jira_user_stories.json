@@ -1,0 +1,112 @@
+[
+  {
+    "id": "HU-01",
+    "summary": "Ver lista de productos",
+    "description": "Mostrar la lista de productos en la página de 'Lista' con nombre y precio.",
+    "acceptance_criteria": "La página `Lista.html` muestra Nombre y Precio para cada producto; cuando existen productos, la lista no está vacía.",
+    "story_points": 2,
+    "epic": "Gestion de Productos",
+    "issue_type": "Story",
+    "priority": "Medium",
+    "assignee": ""
+  },
+  {
+    "id": "HU-02",
+    "summary": "Crear producto",
+    "description": "Formulario para crear un producto con nombre, descripción y precio.",
+    "acceptance_criteria": "Al enviar el formulario en `Crear.html` el producto aparece en `Lista.html` con los datos ingresados.",
+    "story_points": 3,
+    "epic": "Gestion de Productos",
+    "issue_type": "Story",
+    "priority": "Medium",
+    "assignee": ""
+  },
+  {
+    "id": "HU-03",
+    "summary": "Editar producto",
+    "description": "Editar los datos de un producto existente desde `Editar.html`.",
+    "acceptance_criteria": "Cambios realizados en `Editar.html` se reflejan en `Lista.html` y persisten en el estado de la aplicación.",
+    "story_points": 3,
+    "epic": "Gestion de Productos",
+    "issue_type": "Story",
+    "priority": "Medium",
+    "assignee": ""
+  },
+  {
+    "id": "HU-04",
+    "summary": "Eliminar producto",
+    "description": "Eliminar un producto desde la vista de lista con confirmación.",
+    "acceptance_criteria": "El producto seleccionado se elimina de `Lista.html` y el usuario ve una confirmación; ya no aparece en la lista.",
+    "story_points": 2,
+    "epic": "Gestion de Productos",
+    "issue_type": "Story",
+    "priority": "Medium",
+    "assignee": ""
+  },
+  {
+    "id": "HU-05",
+    "summary": "Añadir al carrito",
+    "description": "Añadir un producto al carrito desde la lista.",
+    "acceptance_criteria": "Botón 'Añadir al carrito' agrega el producto a `Carrito.html`; el producto aparece en el carrito con cantidad 1.",
+    "story_points": 2,
+    "epic": "Carrito de Compras",
+    "issue_type": "Story",
+    "priority": "Medium",
+    "assignee": ""
+  },
+  {
+    "id": "HU-06",
+    "summary": "Ver carrito y totales",
+    "description": "Ver el contenido del carrito con totales por producto y total general.",
+    "acceptance_criteria": "`Carrito.html` muestra nombre, cantidad, subtotal por producto y total general correcto.",
+    "story_points": 2,
+    "epic": "Carrito de Compras",
+    "issue_type": "Story",
+    "priority": "Medium",
+    "assignee": ""
+  },
+  {
+    "id": "HU-07",
+    "summary": "Login básico",
+    "description": "Flujo de inicio de sesión básico para acceder a opciones restringidas.",
+    "acceptance_criteria": "Login acepta credenciales de prueba y muestra la vista autenticada; login inválido muestra mensaje de error.",
+    "story_points": 2,
+    "epic": "Calidad y Pruebas",
+    "issue_type": "Story",
+    "priority": "Medium",
+    "assignee": ""
+  },
+  {
+    "id": "HU-08",
+    "summary": "Pruebas automatizadas",
+    "description": "Implementar pruebas automatizadas para flujos críticos con pytest.",
+    "acceptance_criteria": "Suite `pytest` contiene tests para crear, editar, eliminar, añadir al carrito y login; todos pasan en entorno local.",
+    "story_points": 3,
+    "epic": "Calidad y Pruebas",
+    "issue_type": "Story",
+    "priority": "High",
+    "assignee": ""
+  },
+  {
+    "id": "HU-09",
+    "summary": "Reportes y capturas en fallos",
+    "description": "Generar capturas y logs cuando los tests fallan.",
+    "acceptance_criteria": "Al fallar un test se guarda screenshot/log en `tests/reports/screenshots` y el pipeline reporta la ruta.",
+    "story_points": 1,
+    "epic": "Calidad y Pruebas",
+    "issue_type": "Story",
+    "priority": "Medium",
+    "assignee": ""
+  },
+  {
+    "id": "HU-10",
+    "summary": "Responsive básico",
+    "description": "Asegurar que las páginas adaptan el layout en viewport móvil.",
+    "acceptance_criteria": "Layout se adapta a un ancho de 375px sin que elementos críticos queden inaccesibles; ver comprobación manual.",
+    "story_points": 2,
+    "epic": "Calidad y Pruebas",
+    "issue_type": "Story",
+    "priority": "Low",
+    "assignee": ""
+  }
+]

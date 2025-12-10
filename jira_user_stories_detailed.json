@@ -1,0 +1,122 @@
+[
+  {
+    "id": "HU-01",
+    "summary": "Ver lista de productos",
+    "description": "Como usuario, deseo poder visualizar la lista de productos para elegir uno que deseo comprar.\n\nCriterios de Aceptación:\n- Página Lista.html muestra nombre y precio de cada producto\n- Lista no está vacía cuando existen productos en localStorage\n- Se muestran al menos 3 campos: nombre, descripción y precio\n- Los productos están disponibles sin necesidad de autenticación\n- Interfaz es clara y legible\n\nCriterios de Rechazo:\n- Lista vacía cuando hay productos disponibles\n- Información incompleta o faltante de productos\n- Página no carga en menos de 3 segundos\n- Errores de JavaScript en consola del navegador",
+    "acceptance_criteria": "- Página Lista.html muestra nombre y precio de cada producto\n- Lista no está vacía cuando existen productos en localStorage\n- Se muestran al menos 3 campos: nombre, descripción y precio\n- Los productos están disponibles sin necesidad de autenticación\n- Interfaz es clara y legible",
+    "rejection_criteria": "- Lista vacía cuando hay productos disponibles\n- Información incompleta o faltante de productos\n- Página no carga en menos de 3 segundos\n- Errores de JavaScript en consola del navegador",
+    "story_points": 2,
+    "epic": "Gestión de Productos",
+    "issue_type": "Historia",
+    "priority": "Media",
+    "assignee": ""
+  },
+  {
+    "id": "HU-02",
+    "summary": "Crear producto",
+    "description": "Como usuario, deseo poder crear un producto nuevo para agregarlo al sistema de inventario.\n\nCriterios de Aceptación:\n- Formulario en Crear.html con campos: nombre, descripción y precio\n- Validación en cliente de campos requeridos\n- Producto creado se guarda en localStorage\n- Producto aparece inmediatamente en Lista.html después de crear\n- Se muestra mensaje de confirmación al crear exitosamente\n- Precio acepta decimales (ej: 9.99)\n\nCriterios de Rechazo:\n- Permitir crear sin nombre o precio\n- No guardar producto en localStorage\n- Producto no aparece en lista después de crear\n- Aceptar precio negativo o nulo\n- No mostrar validación de campos requeridos",
+    "acceptance_criteria": "- Formulario en Crear.html con campos: nombre, descripción y precio\n- Validación en cliente de campos requeridos\n- Producto creado se guarda en localStorage\n- Producto aparece inmediatamente en Lista.html después de crear\n- Se muestra mensaje de confirmación al crear exitosamente\n- Precio acepta decimales (ej: 9.99)",
+    "rejection_criteria": "- Permitir crear sin nombre o precio\n- No guardar producto en localStorage\n- Producto no aparece en lista después de crear\n- Aceptar precio negativo o nulo\n- No mostrar validación de campos requeridos",
+    "story_points": 3,
+    "epic": "Gestión de Productos",
+    "issue_type": "Historia",
+    "priority": "Media",
+    "assignee": ""
+  },
+  {
+    "id": "HU-03",
+    "summary": "Editar producto",
+    "description": "Como usuario, deseo poder editar un producto existente para corregir o actualizar su información.\n\nCriterios de Aceptación:\n- Página Editar.html carga datos del producto seleccionado\n- Campos editables: nombre, descripción y precio\n- Cambios se guardan en localStorage\n- Cambios se reflejan inmediatamente en Lista.html\n- Se muestra mensaje de confirmación al editar\n- Se validan campos requeridos antes de guardar\n- Opción para cancelar sin guardar cambios\n\nCriterios de Rechazo:\n- Editar un producto que no existe\n- No guardar cambios en localStorage\n- Cambios no se reflejan en lista después de editar\n- Permitir campos vacíos en requeridos\n- Aceptar precio negativo o inválido\n- No mostrar opción de cancelar",
+    "acceptance_criteria": "- Página Editar.html carga datos del producto seleccionado\n- Campos editables: nombre, descripción y precio\n- Cambios se guardan en localStorage\n- Cambios se reflejan inmediatamente en Lista.html\n- Se muestra mensaje de confirmación al editar\n- Se validan campos requeridos antes de guardar\n- Opción para cancelar sin guardar cambios",
+    "rejection_criteria": "- Editar un producto que no existe\n- No guardar cambios en localStorage\n- Cambios no se reflejan en lista después de editar\n- Permitir campos vacíos en requeridos\n- Aceptar precio negativo o inválido\n- No mostrar opción de cancelar",
+    "story_points": 3,
+    "epic": "Gestión de Productos",
+    "issue_type": "Historia",
+    "priority": "Media",
+    "assignee": ""
+  },
+  {
+    "id": "HU-04",
+    "summary": "Eliminar producto",
+    "description": "Como usuario, deseo poder eliminar un producto para mantener el inventario actualizado.\n\nCriterios de Aceptación:\n- Botón eliminar disponible en cada producto en Lista.html\n- Confirmación antes de eliminar (modal o alert)\n- Producto se elimina de localStorage al confirmar\n- Producto desaparece de la lista inmediatamente\n- Se muestra mensaje de confirmación de eliminación\n- Opción para cancelar la eliminación\n- Se mantiene lista de otros productos intacta\n\nCriterios de Rechazo:\n- Eliminar sin confirmación\n- No eliminar de localStorage\n- Producto aún visible después de eliminar\n- Afectar otros productos al eliminar uno\n- No permitir cancelar la operación\n- Eliminar producto que no existe",
+    "acceptance_criteria": "- Botón eliminar disponible en cada producto en Lista.html\n- Confirmación antes de eliminar (modal o alert)\n- Producto se elimina de localStorage al confirmar\n- Producto desaparece de la lista inmediatamente\n- Se muestra mensaje de confirmación de eliminación\n- Opción para cancelar la eliminación\n- Se mantiene lista de otros productos intacta",
+    "rejection_criteria": "- Eliminar sin confirmación\n- No eliminar de localStorage\n- Producto aún visible después de eliminar\n- Afectar otros productos al eliminar uno\n- No permitir cancelar la operación\n- Eliminar producto que no existe",
+    "story_points": 2,
+    "epic": "Gestión de Productos",
+    "issue_type": "Historia",
+    "priority": "Media",
+    "assignee": ""
+  },
+  {
+    "id": "HU-05",
+    "summary": "Añadir al carrito",
+    "description": "Como usuario, deseo poder añadir productos al carrito para comprarlos después.\n\nCriterios de Aceptación:\n- Botón 'Añadir al carrito' disponible en Lista.html para cada producto\n- Producto se añade a Carrito.html con cantidad inicial de 1\n- Carrito se guarda en sessionStorage\n- Se muestra mensaje de confirmación al añadir\n- Permite añadir el mismo producto múltiples veces\n- La cantidad se incrementa si el producto ya está en carrito\n- Icono o badge muestra cantidad de items en carrito\n\nCriterios de Rechazo:\n- Añadir sin botón visible\n- No guardar en sessionStorage\n- Producto no aparece en Carrito.html\n- No mostrar confirmación visual\n- No permitir múltiples unidades del mismo producto\n- Carrito se borra al refrescar página",
+    "acceptance_criteria": "- Botón 'Añadir al carrito' disponible en Lista.html para cada producto\n- Producto se añade a Carrito.html con cantidad inicial de 1\n- Carrito se guarda en sessionStorage\n- Se muestra mensaje de confirmación al añadir\n- Permite añadir el mismo producto múltiples veces\n- La cantidad se incrementa si el producto ya está en carrito\n- Icono o badge muestra cantidad de items en carrito",
+    "rejection_criteria": "- Añadir sin botón visible\n- No guardar en sessionStorage\n- Producto no aparece en Carrito.html\n- No mostrar confirmación visual\n- No permitir múltiples unidades del mismo producto\n- Carrito se borra al refrescar página",
+    "story_points": 2,
+    "epic": "Carrito de Compras",
+    "issue_type": "Historia",
+    "priority": "Media",
+    "assignee": ""
+  },
+  {
+    "id": "HU-06",
+    "summary": "Ver carrito y totales",
+    "description": "Como usuario, deseo ver el contenido del carrito con detalles y totales para verificar mi compra.\n\nCriterios de Aceptación:\n- Página Carrito.html muestra lista de productos añadidos\n- Cada producto muestra: nombre, cantidad, precio unitario y subtotal\n- Se calcula correctamente el total general del carrito\n- Opción para aumentar/disminuir cantidad de cada producto\n- Opción para eliminar producto del carrito\n- Se muestra carrito vacío cuando no hay productos\n- Totales se actualizan en tiempo real al cambiar cantidades\n- Validación de cantidad mínima (1) y máxima (999)\n\nCriterios de Rechazo:\n- Totales incorrectos o mal calculados\n- No mostrar detalles de productos\n- No permitir cambiar cantidades\n- No mostrar opción de eliminar del carrito\n- Totales no se actualizan al cambiar cantidad\n- Permitir cantidad 0 o negativa\n- Carrito no actualiza al cambiar en Lista.html",
+    "acceptance_criteria": "- Página Carrito.html muestra lista de productos añadidos\n- Cada producto muestra: nombre, cantidad, precio unitario y subtotal\n- Se calcula correctamente el total general del carrito\n- Opción para aumentar/disminuir cantidad de cada producto\n- Opción para eliminar producto del carrito\n- Se muestra carrito vacío cuando no hay productos\n- Totales se actualizan en tiempo real al cambiar cantidades\n- Validación de cantidad mínima (1) y máxima (999)",
+    "rejection_criteria": "- Totales incorrectos o mal calculados\n- No mostrar detalles de productos\n- No permitir cambiar cantidades\n- No mostrar opción de eliminar del carrito\n- Totales no se actualizan al cambiar cantidad\n- Permitir cantidad 0 o negativa\n- Carrito no actualiza al cambiar en Lista.html",
+    "story_points": 2,
+    "epic": "Carrito de Compras",
+    "issue_type": "Historia",
+    "priority": "Media",
+    "assignee": ""
+  },
+  {
+    "id": "HU-07",
+    "summary": "Login básico",
+    "description": "Como usuario, deseo poder iniciar sesión para acceder a mis funcionalidades.\n\nCriterios de Aceptación:\n- Login exitoso con credenciales válidas (admin/123)\n- Redirección correcta a página de productos después de login\n- Sesión guardada en sessionStorage\n- Mensaje de error claro con credenciales inválidas\n- Validación de campos no vacíos\n- Indicador visual de usuario autenticado\n- Opción de cerrar sesión\n- Página login no accesible si ya está autenticado\n\nCriterios de Rechazo:\n- Permitir login sin usuario o contraseña\n- No redirigir con credenciales correctas\n- No guardar sesión de usuario válido\n- Guardar sesión de usuario inválido\n- No mostrar mensaje de error\n- Permitir acceso sin validar credenciales\n- Permitir login si ya hay sesión activa\n- No permitir cerrar sesión",
+    "acceptance_criteria": "- Login exitoso con credenciales válidas (admin/123)\n- Redirección correcta a página de productos después de login\n- Sesión guardada en sessionStorage\n- Mensaje de error claro con credenciales inválidas\n- Validación de campos no vacíos\n- Indicador visual de usuario autenticado\n- Opción de cerrar sesión\n- Página login no accesible si ya está autenticado",
+    "rejection_criteria": "- Permitir login sin usuario o contraseña\n- No redirigir con credenciales correctas\n- No guardar sesión de usuario válido\n- Guardar sesión de usuario inválido\n- No mostrar mensaje de error\n- Permitir acceso sin validar credenciales\n- Permitir login si ya hay sesión activa\n- No permitir cerrar sesión",
+    "story_points": 2,
+    "epic": "Calidad y Pruebas",
+    "issue_type": "Historia",
+    "priority": "Media",
+    "assignee": ""
+  },
+  {
+    "id": "HU-08",
+    "summary": "Pruebas automatizadas",
+    "description": "Como desarrollador, deseo tener pruebas automatizadas que validen los flujos críticos para asegurar calidad.\n\nCriterios de Aceptación:\n- Suite pytest con tests para crear, editar, eliminar, añadir al carrito y login\n- Todos los tests pasan en entorno local\n- Cobertura de Happy Path para cada funcionalidad\n- Cobertura de casos negativos (validaciones, errores)\n- Cobertura de casos límite (valores especiales)\n- Tests ejecutables vía CLI: pytest tests/ -v\n- Reporte HTML generado al ejecutar tests\n- Page Object Model implementado para mantenibilidad\n\nCriterios de Rechazo:\n- Tests que fallan sin justificación\n- Cobertura < 70% de flujos críticos\n- No ejecutables desde CLI\n- No generar reportes\n- Código duplicado en tests\n- Tests sin fixtures o configuración\n- No documentar pasos de los tests\n- Fallos aleatorios (tests flaky)",
+    "acceptance_criteria": "- Suite pytest con tests para crear, editar, eliminar, añadir al carrito y login\n- Todos los tests pasan en entorno local\n- Cobertura de Happy Path para cada funcionalidad\n- Cobertura de casos negativos (validaciones, errores)\n- Cobertura de casos límite (valores especiales)\n- Tests ejecutables vía CLI: pytest tests/ -v\n- Reporte HTML generado al ejecutar tests\n- Page Object Model implementado para mantenibilidad",
+    "rejection_criteria": "- Tests que fallan sin justificación\n- Cobertura < 70% de flujos críticos\n- No ejecutables desde CLI\n- No generar reportes\n- Código duplicado en tests\n- Tests sin fixtures o configuración\n- No documentar pasos de los tests\n- Fallos aleatorios (tests flaky)",
+    "story_points": 3,
+    "epic": "Calidad y Pruebas",
+    "issue_type": "Historia",
+    "priority": "Alta",
+    "assignee": ""
+  },
+  {
+    "id": "HU-09",
+    "summary": "Reportes y capturas en fallos",
+    "description": "Como QA, deseo recibir reportes y capturas de pantalla cuando los tests fallan para diagnosticar problemas.\n\nCriterios de Aceptación:\n- Screenshots se guardan en tests/reports/screenshots cuando falla un test\n- Nombre del screenshot incluye nombre del test y timestamp\n- Reporte HTML incluye path a screenshot en caso de fallo\n- Logs del navegador se capturan en archivos de texto\n- Reporte muestra duración de cada test\n- Reporte distingue entre Pass/Fail/Skip\n- Screenshots legibles y en resolución adecuada (1024x768 mínimo)\n- Reportes accesibles al terminar la ejecución\n\nCriterios de Rechazo:\n- Screenshots no se guardan\n- No incluir path en reporte\n- Logs vacíos o incompletos\n- Reporte no legible o incompleto\n- Screenshots borrosos o de baja resolución\n- No incluir timestamps\n- Reportes no accesibles\n- Reportes sin estructura clara",
+    "acceptance_criteria": "- Screenshots se guardan en tests/reports/screenshots cuando falla un test\n- Nombre del screenshot incluye nombre del test y timestamp\n- Reporte HTML incluye path a screenshot en caso de fallo\n- Logs del navegador se capturan en archivos de texto\n- Reporte muestra duración de cada test\n- Reporte distingue entre Pass/Fail/Skip\n- Screenshots legibles y en resolución adecuada (1024x768 mínimo)\n- Reportes accesibles al terminar la ejecución",
+    "rejection_criteria": "- Screenshots no se guardan\n- No incluir path en reporte\n- Logs vacíos o incompletos\n- Reporte no legible o incompleto\n- Screenshots borrosos o de baja resolución\n- No incluir timestamps\n- Reportes no accesibles\n- Reportes sin estructura clara",
+    "story_points": 1,
+    "epic": "Calidad y Pruebas",
+    "issue_type": "Historia",
+    "priority": "Media",
+    "assignee": ""
+  },
+  {
+    "id": "HU-10",
+    "summary": "Responsive básico",
+    "description": "Como usuario, deseo que las páginas se adapten a diferentes tamaños de pantalla para usar desde móviles.\n\nCriterios de Aceptación:\n- Layout se adapta a viewport 375px (móvil pequeño) sin overflow horizontal\n- Elementos críticos son accesibles y clickeables en móvil\n- Fuentes legibles en resolución móvil (mínimo 12px)\n- Imágenes se escalan proporcionalmente\n- Formularios se ajustan al ancho disponible\n- Botones tienen tamaño mínimo de 44x44px para toque\n- Navegación es clara en mobile (menú hamburguesa si es necesario)\n- Media queries CSS para breakpoint 375px implementadas\n\nCriterios de Rechazo:\n- Overflow horizontal en móvil\n- Elementos no accesibles en móvil\n- Texto ilegible por tamaño muy pequeño\n- Imágenes distorsionadas o incompletas\n- Formularios truncados\n- Botones muy pequeños para tocar\n- Navegación confusa en móvil\n- No responsive (sin media queries)",
+    "acceptance_criteria": "- Layout se adapta a viewport 375px (móvil pequeño) sin overflow horizontal\n- Elementos críticos son accesibles y clickeables en móvil\n- Fuentes legibles en resolución móvil (mínimo 12px)\n- Imágenes se escalan proporcionalmente\n- Formularios se ajustan al ancho disponible\n- Botones tienen tamaño mínimo de 44x44px para toque\n- Navegación es clara en mobile (menú hamburguesa si es necesario)\n- Media queries CSS para breakpoint 375px implementadas",
+    "rejection_criteria": "- Overflow horizontal en móvil\n- Elementos no accesibles en móvil\n- Texto ilegible por tamaño muy pequeño\n- Imágenes distorsionadas o incompletas\n- Formularios truncados\n- Botones muy pequeños para tocar\n- Navegación confusa en móvil\n- No responsive (sin media queries)",
+    "story_points": 2,
+    "epic": "Calidad y Pruebas",
+    "issue_type": "Historia",
+    "priority": "Baja",
+    "assignee": ""
+  }
+]
